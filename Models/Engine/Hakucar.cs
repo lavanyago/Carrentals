@@ -10,6 +10,8 @@ namespace carrentals.Models.Engine
         public int year { get;  set; }
         public string type { get; private set; }
         public bool IsRented { get; private set; }
+
+         public Guid UserId { get; set; }
         
         public void Rentcar() 
         {

@@ -8,9 +8,9 @@ namespace carrentals.Models.Storage
     public interface Istorecar
     {
          void createCar (Hakucar newcar);
-        Hakucar getbyIDCar (Guid ID);
+        Hakucar getbyIDCar (Guid ID, Guid userid);
         void updateCar (Hakucar updatedCar);
-        List <Hakucar> GetALLcar();
-        void deletecar (Hakucar car);
+        List <Hakucar> GetALLcar(Guid userid);
+        void deletecar (Hakucar car, Guid userid);
     }
 }

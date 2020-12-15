@@ -41,6 +41,7 @@ namespace carrentals.Models.Engine
     public DateTime Birthdate { get; set; }
     public int CarsTaken { get; private set;}
     public static readonly int MaxCars_Allowed =3;
+     public Guid UserId { get; set; }
     public string FullName 
         { 
             get 
