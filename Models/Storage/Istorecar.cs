@@ -11,6 +11,6 @@ namespace carrentals.Models.Storage
         Hakucar getbyIDCar (Guid ID, Guid userid);
         void updateCar (Hakucar updatedCar);
         List <Hakucar> GetALLcar(Guid userid);
-        void deletecar (Hakucar car, Guid userid);
+        void deletecar (Hakucar carid, Guid userid);
     }
 }

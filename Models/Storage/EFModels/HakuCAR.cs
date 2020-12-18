@@ -15,5 +15,7 @@ namespace carrentals.Models.Storage.EFModels
 
         public bool ISrented { get; set; }
         public Guid UserId { get; set; }
+
+         public bool IsDeleted { get; set; }
     }
 }

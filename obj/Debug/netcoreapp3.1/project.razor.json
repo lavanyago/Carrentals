@@ -14392,6 +14392,16 @@
   "RootNamespace": "carrentals",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Chandra\\Desktop\\DOTNET\\carrentals\\Models\\Views\\Car\\Detail.cshtml",
+      "TargetPath": "Models\\Views\\Car\\Detail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Chandra\\Desktop\\DOTNET\\carrentals\\Models\\Views\\Car\\Form.cshtml",
+      "TargetPath": "Models\\Views\\Car\\Form.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Chandra\\Desktop\\DOTNET\\carrentals\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

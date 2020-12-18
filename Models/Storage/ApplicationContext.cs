@@ -1,16 +1,21 @@
 
 using System;
 using Microsoft.EntityFrameworkCore;
+
+
+using carrentals.Models.Storage;
 using carrentals.Models.Storage.EFModels;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
-namespace hakucarrental.Models.Storage
+namespace carrentals.Models.Storage
 {
     public class ApplicationContext : IdentityDbContext<IdentityUser>
     {
+        internal object HakuCAR;
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) 
         {
             
@@ -24,6 +29,7 @@ namespace hakucarrental.Models.Storage
 
         public DbSet<HakuCAR> Cars { get; set; }
         public DbSet<Rent> Rents { get; set; }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerEF> Customers { get; set; }
+        // public object HakuCAR { get; internal set; }
     }
 }

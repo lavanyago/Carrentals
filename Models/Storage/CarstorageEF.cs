@@ -5,8 +5,10 @@ using System.Linq;
 
 using Microsoft.EntityFrameworkCore;
 
-using carrentals.Models;
+using carrentals.Models.Engine;
+using carrentals.Models.Storage;
 using carrentals.Models.Storage.EFModels;
+
 
 
 namespace carrentals.Models.Storage
@@ -14,14 +16,13 @@ namespace carrentals.Models.Storage
    public class CarstorageEF : Istorecar
     {
         private ApplicationContext _context;
-    } 
-
+ 
     public CarstorageEF ( ApplicationContext context ) 
     {
             _context = context;
     }
 
-    public void createCar (HakuCAR newcar)
+    public void createCar (Hakucar newcar)
     {
         var carmodel = ConvertToDb(newcar);
         _context.HakuCAR.Add(carmodel);
@@ -29,7 +30,7 @@ namespace carrentals.Models.Storage
     }
 
 
-    public void updateCar (HakuCAR updatedCar)
+    public void updateCar (Hakucar updatedCar)
     {
         var cardb = ConvertToDb(updatedCar);
 
@@ -37,25 +38,23 @@ namespace carrentals.Models.Storage
     }
 
 
-        public HakuCAR getbyIDCar (Guid ID, Guid userid)
+        public Hakucar getbyIDCar (Guid ID, Guid userid)
         {
-            var carfromdb = _context.HakuCAR
-                            .AsNoTracking()
-                            .Where(x => x.IsDeleted == false && x.UserId == x.userid);
+            var carfromdb = _context.HakuCAR.AsNoTracking().Where(x => x.IsDeleted == false && x.UserId == x.userid);
 
             var car = CovertFromDb(carfromdb);
 
             return car;                
         }
         
-        public List <HakuCAR> GetALLcar()
+        public List <Hakucar> GetALLcar(Guid userid)
         {
             return _context.HakuCAR
                     .AsNoTracking().Where(x => x.IsDeleted == false && x.UserId == x.userid)
                     .Select(x=> CovertFromDb(x))
                     .ToList();
         }
-       public void deletecar (HakuCAR carid, Guid userid)
+       public void deletecar (Hakucar carid, Guid userid)
        {
            var carfromdb = _context
                             .AsNoTracking()
@@ -65,9 +64,9 @@ namespace carrentals.Models.Storage
             _context.SaveChanges;
        }
 
-        public static HakuCAR ConvertFromDb(EFModels.HakuCAR carDb)
+        public static Hakucar ConvertFromDb(EFModels.HakuCAR carDb)
                {
-            return new HakuCAR(
+            return new Hakucar(
                 carDb.CarId,
                 carDb.Name,
                 carDb.Model,
@@ -79,7 +78,7 @@ namespace carrentals.Models.Storage
             );
         }
 
-        public static EFModels.HakuCAR ConvertToDb( HakuCAR car) {
+        public static EFModels.HakuCAR ConvertToDb( Hakucar car) {
             return new EFModels.HakuCAR() {
                 CarId = car.CarId ,
                 Name = car.Name ,
@@ -92,5 +91,5 @@ namespace carrentals.Models.Storage
             };
         }
     }
-
+}
 

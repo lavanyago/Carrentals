@@ -2,7 +2,7 @@ using System;
 
 namespace carrentals.Models.Storage.EFModels
 {
-    public class Customer
+    public class CustomerEF
     {
         public Guid CustID { get; set; }
         public string Firstname { get;  set; }

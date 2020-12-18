@@ -7,10 +7,10 @@ namespace carrentals.Models.Storage
 {
     public interface Istorerent
     {
-      void createC (Customer newcust);
-      Customer getbyIDC (Guid ID, Guid userId);
-      void updateC (Customer updatedCust);
-      List <Customer> GetALL(Guid userId);
+      void createR (Rent newrent);
+      Rent getbyCarId (Guid carid, Guid userId);
+      void updateR (Rent updatedrent);
+      List <Rent> GetALL(Guid userId);
 
     }
 }

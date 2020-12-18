@@ -1,0 +1,51 @@
+@model carrentals.Models.Engine.Hakucar
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">name</dt>
+        <dd class="col-sm-9">@Model.name</dd>
+
+        <dt class="col-sm-3">model</dt>
+        <dd class="col-sm-9">@Model.model</dd>
+
+        <dt class="col-sm-3">year</dt>
+        <dd class="col-sm-9">@Model.year</dd>
+
+          <dt class="col-sm-3">type</dt>
+        <dd class="col-sm-9">@Model.year</dd>
+
+          <dt class="col-sm-3">year</dt>
+        <dd class="col-sm-9">@Model.year</dd>
+
+        <dt class="col-sm-3">Is Rented</dt>
+        <dd class="col-sm-9">@Model.IsRented</dd>
+
+        <dt class="col-sm-3">Is Deleted</dt>
+        <dd class="col-sm-9">@Model.IsDeleted</dd>
+
+    </dl>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.carId">Edit Book</a>
+    </div>
+    <br/>
+
+    <div>
+    @if (!Model.IsCheckedOut) {
+        <a class="btn btn-success" asp-controller="Loan" asp-action="Create" asp-route-id="@Model.Id">Checkout</a>
+        <form asp-action="Delete" style="display:inline">
+            <input type="hidden" asp-for="Id"/>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+    
+    } else {
+        <a class="btn btn-warning" asp-controller="Loan" asp-action="Return" asp-route-id="@Model.Id">Return</a>
+    }
+    </div>
+
+    <hr/>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
